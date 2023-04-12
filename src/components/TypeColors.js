@@ -4,7 +4,7 @@ const TypeColors = {
   fairy: '#fdb9e9',
   fire: '#fd7d24',
   ghost: '#7b62a3',
-  ground: '#f7de3f',
+  ground: '#AB9842',
   normal: '#a4acaf',
   psychic: '#f366b9',
   steel: '#9eb7b',

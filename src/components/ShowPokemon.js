@@ -1,10 +1,16 @@
+import { ReactComponent as LeftCaret } from "../assets/caret-left-fill.svg";
+import { ReactComponent as RightCaret } from "../assets/caret-right-fill.svg";
 import TypeColors from "./TypeColors"
 
-export default function ShowPokemon({ pokemon }) {
+export default function ShowPokemon({ pokemon, previous, next }) {
   return (
     <section className="show container">
       <div className="show-info">
-        <h2>{pokemon.name} <span>#{pokemon.id}</span></h2>
+        <div className="heading">
+          <button className="caret" onClick={previous}><LeftCaret /></button>
+          <h2>{pokemon.name} <span>#{pokemon.id}</span></h2>
+          <button className="caret" onClick={next}><RightCaret /></button>
+        </div>
         <div className="image">
           <img src={pokemon.img} alt="Pokemon sprite" />
         </div>

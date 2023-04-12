@@ -18,6 +18,7 @@ export default function App() {
     setLoading(true);
     await Axios.get(URL + pokeName.toLowerCase())
       .then((res) => {
+        console.log(res)
         setPokemon({
           name: res.data.name,
           id: res.data.id,
@@ -49,6 +50,24 @@ export default function App() {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  const clearPokemon = () => {
+    setFoundPokemon(false);
+    setPokemonName("");
+    setPokemon({});
+  }
+
+  const previous = () => {
+    if (pokemon.id > 1) {
+      getPokemonData((pokemon.id - 1).toString())
+    }
+  }
+
+  const next = () => {
+    if (pokemon.id !== HighestId) {
+      getPokemonData((pokemon.id + 1).toString())
+    }
+  }
+
   return (
     <div className="app">
       <Header />
@@ -58,6 +77,7 @@ export default function App() {
           setName={setPokemonName}
           getData={getPokemonData}
           getRandomId={getRandomId}
+          clear={clearPokemon}
         />
         {loading ? (
           <section className="loading">
@@ -65,7 +85,13 @@ export default function App() {
           </section>
         ) : (
           <>
-            {foundPokemon && <ShowPokemon pokemon={pokemon} />}
+            {foundPokemon &&
+              <ShowPokemon
+                pokemon={pokemon}
+                previous={previous}
+                next={next}
+              />
+            }
           </>
         )}
       </main>

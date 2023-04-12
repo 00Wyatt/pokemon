@@ -95,6 +95,7 @@ main {
 }
 .header h1 {
   font-size: var(--step-4);
+  font-weight: 400;
 }
 
 /* Search Pokemon */
@@ -134,12 +135,14 @@ main {
   width: 100%;
   border: 2px solid var(--light-grey);
 }
-.search button {
+.search button,
+.show-info button {
   border: none;
   cursor: pointer;
   transition: opacity 200ms ease-in-out;
 }
-.search button:hover {
+.search button:hover,
+.show-info button:hover {
   opacity: 0.8;
 }
 .search-form button {
@@ -157,6 +160,10 @@ main {
     display: block;
   }
 }
+.search .options {
+  display: flex;
+  gap: 8px;
+}
 .search .random button {
   background: var(--tertiary);
   color: var(--white);
@@ -173,6 +180,20 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+.show-info .heading {
+  max-width: 344px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.show-info .caret {
+  background: var(--very-light-grey);
+  color: var(--grey);
+  padding: 16px;
+  border-radius: var(--rounded-sm);
+  display: flex;
 }
 .show-info h2 {
   font-size: var(--step-2);
