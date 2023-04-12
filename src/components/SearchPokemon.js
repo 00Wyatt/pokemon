@@ -1,6 +1,6 @@
 import { ReactComponent as SearchIcon } from "../assets/search-icon.svg";
 
-export default function Search({ name, setName, search }) {
+export default function SearchPokemon({ name, setName, getData, getRandomId }) {
   return (
     <div className="search container">
       <div className="search-content">
@@ -9,7 +9,10 @@ export default function Search({ name, setName, search }) {
         </div>
         <div className="search-form">
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-          <button onClick={search}><SearchIcon /><span>Search</span></button>
+          <button onClick={() => { getData(name) }}><SearchIcon /><span>Search</span></button>
+        </div>
+        <div className="random">
+          <button onClick={getRandomId}>Suprise Me!</button>
         </div>
       </div>
     </div>
